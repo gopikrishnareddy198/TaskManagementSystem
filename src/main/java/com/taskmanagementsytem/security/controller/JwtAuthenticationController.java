@@ -1,9 +1,10 @@
 package com.taskmanagementsytem.security.controller;
 
 
-import com.example.securityinrestappsample.config.JwtTokenUtil;
-import com.example.securityinrestappsample.model.JwtRequest;
-import com.example.securityinrestappsample.model.JwtResponse;
+
+import com.taskmanagementsytem.security.config.JwtTokenUtil;
+import com.taskmanagementsytem.security.model.JwtRequest;
+import com.taskmanagementsytem.security.model.JwtResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,7 +1,6 @@
 package com.taskmanagementsytem.model;
 
-import lombok.AllArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
@@ -13,9 +12,12 @@ import java.util.Collection;
 import java.util.Set;
 
 @Document(collection = "users")
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
 @ToString
-public class User implements UserDetails {
+public class User  implements UserDetails {
 
     @MongoId
     private ObjectId id;
@@ -24,19 +26,10 @@ public class User implements UserDetails {
     private String actualName;
     private Set<UserRole> userRoles;
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return userRoles;
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
+        return this.userRoles;
     }
 
     @Override
@@ -46,7 +39,7 @@ public class User implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
@@ -56,8 +49,6 @@ public class User implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
-
-
 }

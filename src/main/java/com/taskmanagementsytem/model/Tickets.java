@@ -20,7 +20,7 @@ public class Tickets {
     private String description;
     private LocalDate creationDate;
     private LocalTime creationTime;
-    private String createdBy;
+    private String idOfTheUserWhoCreatedTicket;
     private String assignedTo;
     private String status;
     private String priority;

@@ -32,12 +32,15 @@ public class TestRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
 
-    /*    userRepo.save(new User(new ObjectId(),"gxa30590",bCryptPasswordEncoder.encode("abc123"),"Gopi",
+
+/*
+        userRepo.save(new User(new ObjectId(),"sxa30590",  bCryptPasswordEncoder.encode("abc124"),"Sindu",
+                Set.of(new UserRole(new Role("ROLE_ADMIN")))));
+
+        userRepo.save(new User(new ObjectId(),"gxa30590", bCryptPasswordEncoder.encode("abc123"),"Gopi",
                 Set.of(new UserRole(new Role("ROLE_ADMIN")),new UserRole(new Role("ROLE_USER")))));
 
-        userRepo.save(new User(new ObjectId(),"sxa30590",  bCryptPasswordEncoder.encode("abc124"),"Sindu",
-                Set.of(new UserRole(new Role("ROLE_ADMIN")))));*/
-
+*/
       //  userRepo.findAll().forEach(System.out::println);
 
        /* Tickets tickets1=
