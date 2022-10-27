@@ -1,4 +1,4 @@
-package com.taskmanagementsytem.model;
+package com.taskmanagementsytem.entity;
 
 import lombok.*;
 import org.bson.types.ObjectId;
@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Id;
 import java.util.Collection;
 import java.util.Set;
 

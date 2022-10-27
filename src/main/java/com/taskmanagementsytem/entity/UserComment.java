@@ -1,15 +1,16 @@
-package com.taskmanagementsytem.model;
+package com.taskmanagementsytem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalTime;
 
+
 @Data
 @AllArgsConstructor
-public class AdminComment {
+public class UserComment {
 
-    private String adminName;
+    private String username;
     private LocalTime commentedAt;
     private String comment;
 }

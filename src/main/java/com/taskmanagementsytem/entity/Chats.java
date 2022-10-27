@@ -1,11 +1,10 @@
-package com.taskmanagementsytem.model;
+package com.taskmanagementsytem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
-import java.util.List;
 
 @Document(collection="chats")
 @Data

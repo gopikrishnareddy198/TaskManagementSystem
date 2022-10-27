@@ -1,4 +1,4 @@
-package com.taskmanagementsytem.model;
+package com.taskmanagementsytem.entity;
 
 public class Role {
 

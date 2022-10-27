@@ -1,17 +1,15 @@
-package com.taskmanagementsytem.model;
+package com.taskmanagementsytem.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalTime;
 
-
 @Data
 @AllArgsConstructor
-public class UserComment {
+public class AdminComment {
 
-    private String username;
+    private String adminName;
     private LocalTime commentedAt;
     private String comment;
 }

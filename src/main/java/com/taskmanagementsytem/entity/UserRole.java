@@ -1,4 +1,4 @@
-package com.taskmanagementsytem.model;
+package com.taskmanagementsytem.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 

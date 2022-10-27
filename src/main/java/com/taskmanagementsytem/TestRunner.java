@@ -1,22 +1,16 @@
 package com.taskmanagementsytem;
 
-import com.taskmanagementsytem.model.Role;
-import com.taskmanagementsytem.model.Tickets;
-import com.taskmanagementsytem.model.User;
-import com.taskmanagementsytem.model.UserRole;
+import com.taskmanagementsytem.entity.Role;
+import com.taskmanagementsytem.entity.User;
+import com.taskmanagementsytem.entity.UserRole;
 import com.taskmanagementsytem.repo.TicketsRepo;
 import com.taskmanagementsytem.repo.UserRepo;
-import com.taskmanagementsytem.util.Priority;
-import com.taskmanagementsytem.util.Status;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Set;
 
 @Component
@@ -41,7 +35,14 @@ public class TestRunner implements CommandLineRunner {
                 Set.of(new UserRole(new Role("ROLE_ADMIN")),new UserRole(new Role("ROLE_USER")))));
 
 */
-      //  userRepo.findAll().forEach(System.out::println);
+        userRepo.save(new User(new ObjectId(),"sxd19850", bCryptPasswordEncoder.encode("abc125"),"Suhas",
+                Set.of(new UserRole(new Role("ROLE_USER")))));
+
+        userRepo.save(new User(new ObjectId(),"kho1111", bCryptPasswordEncoder.encode("abc126"),"Khomsun",
+                Set.of(new UserRole(new Role("ROLE_ADMIN")))));
+
+
+        //  userRepo.findAll().forEach(System.out::println);
 
        /* Tickets tickets1=
         ticketsRepo.findByTicketNum(1);

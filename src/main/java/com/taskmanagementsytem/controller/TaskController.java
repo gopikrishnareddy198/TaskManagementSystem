@@ -1,11 +1,12 @@
 package com.taskmanagementsytem.controller;
 
+import com.taskmanagementsytem.bo.TicketBO;
+import com.taskmanagementsytem.entity.Ticket;
 import com.taskmanagementsytem.repo.TicketsRepo;
 import com.taskmanagementsytem.security.service.JwtUserDetailsService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/tickets")
@@ -16,6 +17,16 @@ public class TaskController {
 
     @Autowired
     private TicketsRepo ticketsRepo;
+
+
+    @PostMapping(value = "/create-ticket")
+    public Ticket addNewTicket(@RequestBody TicketBO ticketBO){
+        Ticket ticket=new Ticket();
+        BeanUtils.copyProperties(ticketBO,ticket);
+        ticket.setIdOfTheUserWhoCreatedTicket(jwtUserDetailsService.getUserIdOfCurrentlyLoggedInUser().toString());
+        ticketsRepo.save(ticket);
+        return ticket;
+    }
 
     @GetMapping(value="/fetch-all-tickets")
     public String getAllTickets(){

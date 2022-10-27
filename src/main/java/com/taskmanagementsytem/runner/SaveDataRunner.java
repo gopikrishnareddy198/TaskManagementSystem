@@ -1,17 +1,12 @@
 package com.taskmanagementsytem.runner;
 
-import com.taskmanagementsytem.model.*;
 import com.taskmanagementsytem.repo.ChatsRepo;
 import com.taskmanagementsytem.repo.TicketsRepo;
 import com.taskmanagementsytem.repo.UserRepo;
-import com.taskmanagementsytem.util.Priority;
-import com.taskmanagementsytem.util.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 @Component
 public class SaveDataRunner implements CommandLineRunner {
 

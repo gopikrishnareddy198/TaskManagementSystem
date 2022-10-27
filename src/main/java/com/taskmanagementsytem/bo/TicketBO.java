@@ -1,20 +1,14 @@
-package com.taskmanagementsytem.model;
+package com.taskmanagementsytem.bo;
 
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Document(collection = "tickets")
 @Data
-@AllArgsConstructor
-public class Tickets {
+public class TicketBO {
 
-    @Id
+
     private Integer ticketNum;
     private String title;
     private String description;
@@ -25,6 +19,4 @@ public class Tickets {
     private String status;
     private String priority;
     private String category;
-
-
 }

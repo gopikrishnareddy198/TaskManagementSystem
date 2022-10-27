@@ -1,6 +1,6 @@
 package com.taskmanagementsytem.repo;
 
-import com.taskmanagementsytem.model.Chats;
+import com.taskmanagementsytem.entity.Chats;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

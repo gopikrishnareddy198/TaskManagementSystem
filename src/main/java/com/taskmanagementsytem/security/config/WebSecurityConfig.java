@@ -3,6 +3,7 @@ package com.taskmanagementsytem.security.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -20,6 +21,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+	private static final String ROLE_USER="ROLE_ADMIN";
+	private static final String ROLE_ADMIN="ROLE_USER";
 
 	@Autowired
 	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -58,9 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// dont authenticate this particular request
 				.authorizeRequests().antMatchers("/authenticate").permitAll().
 				// all other requests need to be authenticated
-				antMatchers("/tickets/fetch-all-tickets").hasAuthority("ROLE_ADMIN").
-				antMatchers("/tickets/fetch-one-ticket").hasAuthority("ROLE_USER").
-
+				antMatchers("/tickets/fetch-all-tickets").hasAuthority(ROLE_ADMIN).
+				antMatchers("/tickets/fetch-one-ticket").hasAuthority(ROLE_USER).
+				antMatchers("/tickets/create-ticket").hasAuthority(ROLE_USER).
 				anyRequest().authenticated().and().
 				// make sure we use stateless session; session won't be used to
 				// store user's state.
