@@ -4,9 +4,14 @@ import com.taskmanagementsytem.bo.TicketBO;
 import com.taskmanagementsytem.entity.Ticket;
 import com.taskmanagementsytem.repo.TicketsRepo;
 import com.taskmanagementsytem.security.service.JwtUserDetailsService;
+import com.taskmanagementsytem.service.SequenceGeneratorService;
+import com.taskmanagementsytem.util.Status;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @RestController
 @RequestMapping("/tickets")
@@ -18,12 +23,18 @@ public class TaskController {
     @Autowired
     private TicketsRepo ticketsRepo;
 
+    @Autowired
+    SequenceGeneratorService sequenceGeneratorService;
 
     @PostMapping(value = "/create-ticket")
     public Ticket addNewTicket(@RequestBody TicketBO ticketBO){
         Ticket ticket=new Ticket();
         BeanUtils.copyProperties(ticketBO,ticket);
         ticket.setIdOfTheUserWhoCreatedTicket(jwtUserDetailsService.getUserIdOfCurrentlyLoggedInUser().toString());
+        ticket.setTicketNum(sequenceGeneratorService.generateSequence(ticket.SEQUENCE_NAME));
+        ticket.setCreationDate(LocalDate.now());
+        ticket.setCreationTime(LocalTime.now());
+        ticket.setStatus(Status.NEW);
         ticketsRepo.save(ticket);
         return ticket;
     }
