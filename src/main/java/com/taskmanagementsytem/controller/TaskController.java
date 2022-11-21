@@ -8,13 +8,18 @@ import com.taskmanagementsytem.service.SequenceGeneratorService;
 import com.taskmanagementsytem.util.Status;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/tickets")
+@CrossOrigin(origins = "*")
 public class TaskController {
 
     @Autowired
@@ -26,7 +31,7 @@ public class TaskController {
     @Autowired
     SequenceGeneratorService sequenceGeneratorService;
 
-    @PostMapping(value = "/create-ticket")
+    @PostMapping(value = "/create-ticket", consumes="application/json")
     public Ticket addNewTicket(@RequestBody TicketBO ticketBO){
         Ticket ticket=new Ticket();
         BeanUtils.copyProperties(ticketBO,ticket);
@@ -40,17 +45,29 @@ public class TaskController {
     }
 
     @GetMapping(value="/fetch-all-tickets")
-    public String getAllTickets(){
-        return "Tickets \n" +
-                "{Ticket 1: Done}" +
-                "{Ticket 2: Pending}"+
-                "{Ticket 3: Not Opened}"+
-                "{Ticket 4: Not Opened}";
+    public ResponseEntity<List<Ticket>> getAllTickets(){
+        ResponseEntity<List<Ticket>> responseEntity;
+        HttpHeaders httpHeaders;
+
+        httpHeaders=new HttpHeaders();
+
+        responseEntity=new ResponseEntity<>(ticketsRepo.findAll(),httpHeaders, HttpStatus.OK);
+
+        return responseEntity;
     }
 
     @GetMapping(value = "/fetch-one-ticket")
-    public String getATicket(){
-        return "{Ticket 0: Not Opened}";
+    public ResponseEntity<String> getATicket(){
+        ResponseEntity<String> responseEntity;
+        String body;
+        HttpHeaders headers;
+
+        headers=new HttpHeaders();
+
+        body="{Ticket 0: Not Opened}";
+        responseEntity=new ResponseEntity<>(body,headers,HttpStatus.OK);
+
+        return responseEntity;
     }
 
     @GetMapping(value = "/fetch-not-opened")

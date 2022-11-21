@@ -2,7 +2,7 @@ package com.taskmanagementsytem.security.controller;
 
 
 
-import com.taskmanagementsytem.security.config.JwtTokenUtil;
+import com.taskmanagementsytem.security.configuration.JwtTokenUtil;
 import com.taskmanagementsytem.security.model.JwtRequest;
 import com.taskmanagementsytem.security.model.JwtResponse;
 import org.springframework.beans.factory.annotation.Autowired;

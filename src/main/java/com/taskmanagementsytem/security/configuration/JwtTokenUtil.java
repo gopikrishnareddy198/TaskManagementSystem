@@ -1,4 +1,4 @@
-package com.taskmanagementsytem.security.config;
+package com.taskmanagementsytem.security.configuration;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

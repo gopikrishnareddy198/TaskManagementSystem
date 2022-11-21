@@ -1,4 +1,4 @@
-package com.taskmanagementsytem.security.config;
+package com.taskmanagementsytem.security.configuration;
 
 
 import com.taskmanagementsytem.security.service.JwtUserDetailsService;

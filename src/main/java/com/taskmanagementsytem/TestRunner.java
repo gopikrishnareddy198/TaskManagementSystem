@@ -27,20 +27,18 @@ public class TestRunner implements CommandLineRunner {
         BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
 
 
-/*
-        userRepo.save(new User(new ObjectId(),"sxa30590",  bCryptPasswordEncoder.encode("abc124"),"Sindu",
+       /* userRepo.save(new User(new ObjectId(),"sxa30590",  bCryptPasswordEncoder.encode("1234"),"Sindu",
                 Set.of(new UserRole(new Role("ROLE_ADMIN")))));
 
-        userRepo.save(new User(new ObjectId(),"gxa30590", bCryptPasswordEncoder.encode("abc123"),"Gopi",
+        userRepo.save(new User(new ObjectId(),"gxa30590", bCryptPasswordEncoder.encode("1234"),"Gopi",
                 Set.of(new UserRole(new Role("ROLE_ADMIN")),new UserRole(new Role("ROLE_USER")))));
 
-        userRepo.save(new User(new ObjectId(),"sxd19850", bCryptPasswordEncoder.encode("abc125"),"Suhas",
+        userRepo.save(new User(new ObjectId(),"sxd19850", bCryptPasswordEncoder.encode("1234"),"Suhas",
                 Set.of(new UserRole(new Role("ROLE_USER")))));
 
-        userRepo.save(new User(new ObjectId(),"kho1111", bCryptPasswordEncoder.encode("abc126"),"Khomsun",
-                Set.of(new UserRole(new Role("ROLE_ADMIN")))));
+        userRepo.save(new User(new ObjectId(),"kho1111", bCryptPasswordEncoder.encode("1234"),"Khomsun",
+                Set.of(new UserRole(new Role("ROLE_ADMIN")))));*/
 
-*/
 
         //  userRepo.findAll().forEach(System.out::println);
 

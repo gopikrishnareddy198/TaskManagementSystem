@@ -1,4 +1,4 @@
-package com.taskmanagementsytem.security.config;
+package com.taskmanagementsytem.security.configuration;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
